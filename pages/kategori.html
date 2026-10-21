@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Produk — SEPHORREAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../js/tailwind-config.js"></script>
+
+  <style type="text/tailwindcss">
+    @layer base {
+      h1, h2, h3, h4, h5 { @apply font-display font-bold leading-[1.05] tracking-[-0.02em]; }
+      :focus-visible { @apply outline outline-2 outline-offset-[3px] outline-black; }
+    }
+
+    /* =====================================================
+       CLASS BUATAN SENDIRI (berbahasa Indonesia)
+       Tiap class di bawah = gabungan class Tailwind.
+       Mau ubah tampilan? Cukup ubah di sini, tidak perlu
+       mengubah HTML atau JavaScript.
+       ===================================================== */
+    @layer components {
+
+      /* ---------- Kerangka halaman ---------- */
+      .isi-halaman        { @apply py-12 lg:py-[72px]; }
+      .pembungkus         { @apply mx-auto w-full max-w-[1280px] px-4 lg:px-5; }
+
+      /* ---------- Judul halaman ---------- */
+      .kepala-halaman     { @apply mb-8 flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6; }
+      .judul-halaman      { @apply text-[clamp(30px,5vw,52px)] uppercase; }
+      .deskripsi-halaman  { @apply mt-3 max-w-[600px] text-[15px] text-gray-700; }
+      .jumlah-produk      { @apply font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-gray-500; }
+
+      /* ---------- Pencarian & urutkan ---------- */
+      .baris-cari         { @apply mb-8 flex justify-end; }
+      .form-cari          { @apply relative flex-1; }
+      .kolom-cari         { @apply h-12 w-full border-[1.5px] border-black bg-white pl-4 pr-12 placeholder:text-gray-500; }
+      .ikon-cari          { @apply pointer-events-none absolute right-0 top-0 grid h-12 w-12 place-items-center; }
+      .ikon-kaca          { @apply h-[22px] w-[22px] fill-none stroke-current stroke-[1.7]; }
+      .pilihan-urut       { @apply h-12 border-[1.5px] border-black bg-white px-4 font-display text-[13px] font-semibold sm:w-[220px]; }
+
+      /* ---------- Tombol filter kategori ---------- */
+      .barisan-filter     { @apply mb-8 flex gap-2 overflow-x-auto pb-2; }
+      .tombol-filter      { @apply h-10 shrink-0 border-[1.5px] border-black bg-white px-4 font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-black transition-colors duration-[250ms] ease-soft hover:bg-black hover:text-white; }
+      .tombol-filter-aktif{ @apply bg-black text-white; }
+
+      /* ---------- Daftar produk ---------- */
+      .grid-produk        { @apply grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4; }
+
+      /* ---------- Kartu produk ---------- */
+      .gambar-produk      { @apply relative grid aspect-[4/5] place-items-center overflow-hidden bg-gray-100; }
+      .gambar-produk      { @apply relative grid aspect-square place-items-center bg-gray-100; }
+      .foto-produk        { @apply absolute inset-0 h-full w-full object-cover; }
+      .foto-habis         { @apply opacity-40; }
+      .ikon-placeholder   { @apply h-1/2 w-1/2 fill-none stroke-black stroke-[1.5]; }
+      .label-di-gambar    { @apply absolute left-3 top-3 flex flex-wrap gap-1; }
+
+      /* ---------- Tombol favorit (hati) ---------- */
+      .tombol-favorit        { @apply absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full border border-black bg-white text-black transition-colors duration-[250ms] ease-soft hover:bg-black hover:text-white; }
+      .ikon-hati             { @apply h-[18px] w-[18px] fill-none stroke-current stroke-[1.8]; }
+      .tombol-favorit-aktif  { @apply bg-black text-white; }
+      .tombol-favorit-aktif .ikon-hati { @apply fill-current; }
+
+      .lencana            { @apply inline-block bg-black px-[9px] py-[3px] font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-white; }
+      .lencana-diskon     { @apply inline-block border border-black bg-white px-[8px] py-[2px] font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-black; }
+
+      .isi-kartu          { @apply flex flex-1 flex-col gap-1 p-4; }
+      .merek-produk       { @apply font-display text-[12px] font-semibold uppercase tracking-[0.14em] text-gray-500; }
+      .nama-produk        { @apply text-[17px] leading-[1.2]; }
+      .baris-harga        { @apply mt-1 flex items-baseline gap-2; }
+      .harga-akhir        { @apply font-display text-[18px] font-bold; }
+      .harga-coret        { @apply text-[13px] text-gray-500 line-through; }
+
+      .info-stok          { @apply text-[13px] text-gray-700; }
+      .info-stok-menipis  { @apply text-black font-semibold; }
+      .info-stok-habis    { @apply text-gray-500; }
+
+      .tombol-keranjang   { @apply mt-3 inline-flex h-11 w-full items-center justify-center border-2 border-black bg-black px-4 font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-white transition-colors duration-[250ms] ease-soft hover:bg-white hover:text-black; }
+      .tombol-mati        { @apply cursor-not-allowed border-gray-300 bg-gray-100 text-gray-500 hover:bg-gray-100 hover:text-gray-500; }
+
+      /* ---------- Kalau produk tidak ketemu ---------- */
+      .kotak-kosong       { @apply border border-line bg-gray-50 px-6 py-16 text-center; }
+      .judul-kosong       { @apply text-[24px] uppercase; }
+      .teks-kosong        { @apply mx-auto mt-3 max-w-[420px] text-gray-700; }
+      .tombol-utama       { @apply mt-6 inline-flex h-[52px] items-center justify-center border-2 border-black bg-black px-8 font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-[250ms] ease-soft hover:bg-white hover:text-black; }
+
+      /* ---------- Notifikasi "masuk keranjang" ---------- */
+      .notifikasi         { @apply fixed bottom-5 left-1/2 z-[120] -translate-x-1/2 translate-y-24 bg-black px-5 py-3 text-[14px] text-white opacity-0 transition-all duration-300 ease-soft; }
+      .notifikasi-tampil  { @apply translate-y-0 opacity-100; }
+    }
+  </style>
+</head>
+<body class="bg-white font-body text-[15px] leading-[1.6] text-black antialiased">
+  <!-- Menandai menu aktif di header sesuai ?c= (harus SEBELUM components.js) -->
+  <script>document.body.dataset.page = new URLSearchParams(location.search).get("c") || "";</script>
+
+  <div id="site-header"></div>
+
+  <main class="isi-halaman">
+    <div class="pembungkus">
+
+      <!-- Judul -->
+      <div class="kepala-halaman">
+        <div>
+          <h2 id="judul" class="judul-halaman">Produk</h2>
+          <p id="deskripsi" class="deskripsi-halaman"></p>
+        </div>
+        <span id="jumlah" class="jumlah-produk"></span>
+      </div>
+
+      <!-- Urutkan -->
+      <div class="baris-cari">
+        <label class="sr-only" for="pilihan-urut">Urutkan</label>
+        <select id="pilihan-urut" class="pilihan-urut">
+          <option value="bawaan">Urutkan: Bawaan</option>
+          <option value="termurah">Harga terendah</option>
+          <option value="termahal">Harga tertinggi</option>
+          <option value="nama">Nama A–Z</option>
+        </select>
+      </div>
+
+      <!-- Daftar produk (diisi otomatis oleh kategori.js) -->
+      <div id="grid-produk" class="grid-produk"></div>
+
+      <!-- Tampil kalau tidak ada produk yang cocok -->
+      <div id="kotak-kosong" class="kotak-kosong hidden">
+        <h3 class="judul-kosong">Produk tidak ditemukan</h3>
+        <p class="teks-kosong">Coba kata kunci lain, atau tampilkan semua produk.</p>
+        <button id="tombol-reset" type="button" class="tombol-utama">Lihat semua produk</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Notifikasi kecil saat tambah keranjang -->
+  <div id="notifikasi" role="status" aria-live="polite" class="notifikasi"></div>
+
+  <script src="../js/components.js" data-root="../"></script>
+  <script src="../js/products.js"></script>
+  <script src="../js/kategori.js"></script>
+</body>
+</html>
