@@ -4,10 +4,12 @@
   const ACTIVE = document.body.dataset.page || "";
 
   const MENU = [
+    { key: "semua", label: "Semua", href: "pages/kategori.html?c=semua" },
     { key: "makeup", label: "Makeup", href: "pages/kategori.html?c=makeup" },
     { key: "skincare", label: "Skincare", href: "pages/kategori.html?c=skincare" },
     { key: "rambut", label: "Rambut", href: "pages/kategori.html?c=rambut" },
     { key: "parfum",label: "Parfum", href: "pages/kategori.html?c=parfum" },
+    { key: "tubuh", label: "Tubuh & Mandi", href: "pages/kategori.html?c=tubuh" },
     { key: "sale", label: "Sale", href: "pages/kategori.html?c=sale" },
   ];
 
@@ -30,7 +32,7 @@
   const ICON = {
     search: svg('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
     user: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>'),
-    heart: svg('<path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11Z"/>'),
+    home: svg('<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5.5h4V20"/>'),
     bag: svg('<path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>'),
     menu: svg('<path d="M4 7h16M4 12h16M4 17h16"/>'),
     close: svg('<path d="M6 6l12 12M18 6 6 18"/>'),
@@ -41,7 +43,7 @@
   };
 
   const link = (href) => ROOT + href;
-  const logoImg = (cls, extra = "") => `<img src="${link("logo.png")}" alt="SEPHORA" class="w-auto ${cls} ${extra}" />`;
+  const logoImg = (cls, extra = "") => `<img src="${link("logo.png")}" alt="SEPHORREAL" class="w-auto ${cls} ${extra}" />`;
   const links = (drawer) =>
     MENU.map((m) =>
       drawer
@@ -61,12 +63,12 @@
     <header class="sticky top-0 z-50 border-b border-line bg-white">
       <div class="${CONTAINER} flex h-[62px] items-center gap-2 lg:h-[72px] lg:gap-4 xl:gap-8">
         <button class="${ICON_BTN} -ml-[10px] lg:hidden" data-menu-open aria-label="Buka menu">${ICON.menu}</button>
-        <a href="${link("index.html")}" class="mx-auto lg:mx-0" aria-label="SEPHORA — beranda">${logoImg("h-12 lg:h-14", "mix-blend-multiply")}</a>
+        <a href="${link("index.html")}" class="${ICON_BTN}" aria-label="Kembali ke beranda">${ICON.home}</a>
+        <a class="mx-auto lg:mx-0" aria-label="SEPHORREAL — beranda">${logoImg("h-12 lg:h-14", "mix-blend-multiply")}</a>
         <nav class="ml-4 hidden gap-4 lg:flex xl:gap-6" aria-label="Menu utama">${links(false)}</nav>
         ${searchForm("desktop", "relative ml-auto hidden max-w-[260px] flex-1 lg:block xl:max-w-[420px]")}
         <div class="flex items-center gap-2">
           <a href="${link("pages/akun.html")}" class="${ICON_BTN.replace("grid ", "")} hidden lg:grid" aria-label="Akun">${ICON.user}</a>
-          <a href="${link("pages/wishlist.html")}" class="${ICON_BTN}" aria-label="Wishlist">${ICON.heart}</a>
           <a href="${link("pages/keranjang.html")}" class="${ICON_BTN}" aria-label="Keranjang">${ICON.bag}<span class="absolute right-[3px] top-1 grid h-[17px] min-w-[17px] place-items-center rounded-[9px] bg-black px-1 text-[10px] font-bold text-white" data-cart-count>0</span></a>
         </div>
       </div>
@@ -76,7 +78,7 @@
     <div class="pointer-events-none fixed inset-0 z-[90] bg-black/55 opacity-0 transition-opacity duration-300" data-backdrop data-menu-close></div>
     <aside class="fixed inset-y-0 left-0 z-[100] flex w-[min(86vw,360px)] -translate-x-full flex-col overflow-y-auto bg-white transition-transform duration-[350ms] ease-soft" data-drawer aria-label="Menu navigasi" aria-hidden="true">
       <div class="flex items-center justify-between border-b border-line px-4 py-3">
-        <a href="${link("index.html")}" aria-label="SEPHORA — beranda">${logoImg("h-10", "mix-blend-multiply")}</a>
+        <a href="${link("index.html")}" aria-label="SEPHORREAL — beranda">${logoImg("h-10", "mix-blend-multiply")}</a>
         <button class="${ICON_BTN}" data-menu-close aria-label="Tutup menu">${ICON.close}</button>
       </div>
       <nav>${links(true)}</nav>
@@ -100,7 +102,7 @@
 
         <div class="grid grid-cols-2 gap-8 py-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div class="col-span-full lg:col-auto">
-            <a href="${link("index.html")}" aria-label="SEPHORA — beranda">${logoImg("h-16 lg:h-20", "invert mix-blend-screen")}</a>
+            <a href="${link("index.html")}" aria-label="SEPHORREAL — beranda">${logoImg("h-16 lg:h-20", "invert mix-blend-screen")}</a>
             <p class="my-4 max-w-[320px] text-[14px] text-gray-500">Destinasi beauty hitam-putih: produk pilihan, tanpa ribet, tanpa bising.</p>
             <div class="flex gap-2">
               <a class="grid h-[42px] w-[42px] place-items-center rounded-full border-[1.5px] border-white transition-colors duration-[250ms] hover:bg-white hover:text-black" href="#" aria-label="Instagram">${ICON.ig}</a>
@@ -124,7 +126,7 @@
           <div>
             <h5 class="${FOOT_H5}">Tentang</h5>
             <ul class="[&>li+li]:mt-2">
-              <li><a class="${FOOT_LINK}" href="#">Tentang SEPHORA</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Tentang SEPHORREAL</a></li>
               <li><a class="${FOOT_LINK}" href="#">Karier</a></li>
               <li><a class="${FOOT_LINK}" href="#">Syarat &amp; ketentuan</a></li>
               <li><a class="${FOOT_LINK}" href="#">Kebijakan privasi</a></li>
@@ -133,7 +135,7 @@
         </div>
 
         <div class="flex flex-wrap justify-between gap-3 border-t border-[#2a2a2a] py-6 text-[12px] text-gray-500">
-          <span>© ${new Date().getFullYear()} SEPHORA. Semua hak dilindungi.</span>
+          <span>© ${new Date().getFullYear()} SEPHORREAL. Semua hak dilindungi.</span>
           <span>Dibuat untuk tugas kelompok</span>
         </div>
       </div>
