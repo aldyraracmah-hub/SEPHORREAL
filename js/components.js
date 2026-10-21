@@ -43,7 +43,7 @@
   };
 
   const link = (href) => ROOT + href;
-  const logoImg = (cls, extra = "") => `<img src="${link("logo.png")}" alt="SEPHORREAL" class="w-auto ${cls} ${extra}" />`;
+  const logoImg = (cls, extra = "") => `<img src="${link("logofix.png")}" alt="SEPHORREAL" class="w-auto ${cls} ${extra}" />`;
   const links = (drawer) =>
     MENU.map((m) =>
       drawer
