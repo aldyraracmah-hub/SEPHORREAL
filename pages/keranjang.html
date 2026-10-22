@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Keranjang Belanja | SEPHORREAL</title>
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CUSTOM CSS -->
+    <style>
+        body {
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        h1, h2, h3, button {
+            font-family: 'Space Grotesk', Arial, sans-serif;
+        }
+
+        .qty-btn:disabled {
+            opacity: .25;
+            cursor: not-allowed;
+        }
+
+        input[type=checkbox] {
+            accent-color: #111;
+        }
+
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible {
+            outline: 2px solid black;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+
+<body data-page="cart" class="bg-white text-[#111]">
+
+    <!-- ===================================== -->
+    <!-- HEADER WEBSITE                        -->
+    <!-- ===================================== -->
+
+    <div id="site-header"></div>
+
+
+    <!-- ===================================== -->
+    <!-- HALAMAN UTAMA KERANJANG                -->
+    <!-- ===================================== -->
+
+    <main class="mx-auto max-w-[1280px] px-4 py-9 lg:px-5 lg:py-14">
+
+        <!-- BREADCRUMB -->
+        <div class="mb-8 text-xs text-gray-500">
+
+            <a href="../index.html" class="hover:underline">
+                Beranda
+            </a>
+
+            /
+
+            <span class="text-black">
+                Keranjang Belanja
+            </span>
+
+        </div>
+
+
+        <!-- JUDUL HALAMAN KERANJANG -->
+        <div class="mb-9 flex flex-wrap items-end justify-between gap-3 border-b-2 border-black pb-6">
+
+            <div>
+
+                <p class="mb-2 text-xs font-bold uppercase tracking-[.22em]">
+                    YOUR BEAUTY BAG
+                </p>
+
+                <h1 class="text-4xl font-bold uppercase tracking-tight sm:text-5xl">
+
+                    Keranjang Belanja
+
+                    <span id="heading-count" class="text-gray-400">
+                        (0)
+                    </span>
+
+                </h1>
+
+            </div>
+
+            <!-- TOMBOL LANJUT BELANJA -->
+            <a
+                href="kategori.html"
+                class="text-sm font-semibold underline underline-offset-4"
+            >
+                ← Lanjut belanja
+            </a>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- LAYOUT KERANJANG DAN RINGKASAN         -->
+        <!-- ===================================== -->
+
+        <div
+            id="cart-layout"
+            class="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_360px]"
+        >
+
+            <!-- BAGIAN KIRI: DAFTAR PRODUK -->
+            <section>
+
+                <!-- TOOLBAR KERANJANG -->
+                <div
+                    id="cart-toolbar"
+                    class="mb-3 flex items-center justify-between border-b border-gray-200 pb-4"
+                >
+
+                    <!-- PILIH SEMUA PRODUK -->
+                    <label class="flex cursor-pointer items-center gap-3 text-sm font-semibold">
+
+                        <input
+                            id="select-all"
+                            type="checkbox"
+                            class="h-4 w-4"
+                        >
+
+                        Pilih semua
+
+                        <span id="selected-count" class="text-gray-500"></span>
+
+                    </label>
+
+
+                    <!-- HAPUS PRODUK TERPILIH -->
+                    <button
+                        id="delete-selected"
+                        class="text-xs font-bold uppercase tracking-wider underline underline-offset-4 disabled:opacity-30"
+                        disabled
+                    >
+                        Hapus terpilih
+                    </button>
+
+                </div>
+
+
+                <!-- TEMPAT MENAMPILKAN PRODUK KERANJANG -->
+                <div id="cart-items" aria-live="polite"></div>
+
+
+                <!-- TAMPILAN KETIKA KERANJANG KOSONG -->
+                <div
+                    id="empty-cart"
+                    class="hidden border border-gray-200 px-5 py-20 text-center"
+                >
+
+                    <div class="mb-5 text-6xl">
+                        ♡
+                    </div>
+
+                    <h2 class="mb-3 text-2xl font-bold uppercase">
+                        Your bag is empty
+                    </h2>
+
+                    <p class="mb-7 text-sm text-gray-500">
+                        Produk favoritmu belum ada di keranjang.
+                    </p>
+
+                    <a
+                        href="kategori.html"
+                        class="inline-block bg-black px-8 py-4 text-xs font-bold uppercase tracking-widest text-white"
+                    >
+                        Jelajahi produk
+                    </a>
+
+                </div>
+
+
+                <!-- PESAN NOTIFIKASI KERANJANG -->
+                <p
+                    id="cart-message"
+                    class="mt-4 min-h-5 text-sm"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </section>
+
+
+            <!-- ===================================== -->
+            <!-- BAGIAN KANAN: RINGKASAN BELANJA        -->
+            <!-- ===================================== -->
+
+            <aside
+                id="summary"
+                class="border border-gray-200 p-5 lg:sticky lg:top-6 lg:p-7"
+            >
+
+                <!-- JUDUL RINGKASAN -->
+                <h2 class="border-b border-black pb-5 text-xl font-bold uppercase">
+                    Ringkasan Belanja
+                </h2>
+
+
+                <!-- DETAIL PERHITUNGAN HARGA -->
+                <div class="space-y-4 py-6 text-sm">
+
+                    <!-- SUBTOTAL -->
+                    <div class="flex justify-between gap-3">
+
+                        <span>
+                            Subtotal (
+                            <span id="summary-count">0</span>
+                            produk)
+                        </span>
+
+                        <strong id="subtotal">
+                            Rp0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- DISKON PRODUK -->
+                    <div class="flex justify-between gap-3 text-gray-500">
+
+                        <span>
+                            Hemat diskon produk
+                        </span>
+
+                        <strong id="savings" class="text-black">
+                            -Rp0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- ESTIMASI PENGIRIMAN -->
+                    <div class="flex justify-between gap-3">
+
+                        <span>
+                            Estimasi pengiriman
+                        </span>
+
+                        <span class="text-xs text-gray-500">
+                            Dihitung saat checkout
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================== -->
+                <!-- TOTAL HARGA DAN TOMBOL CHECKOUT        -->
+                <!-- ===================================== -->
+
+                <div class="border-t-2 border-black pt-5">
+
+                    <!-- TOTAL BELANJA -->
+                    <div class="mb-2 flex items-center justify-between">
+
+                        <strong class="text-base uppercase">
+                            Total
+                        </strong>
+
+                        <strong id="total" class="text-2xl">
+                            Rp0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- KETERANGAN TOTAL -->
+                    <p class="mb-6 text-xs text-gray-500">
+                        Total sementara untuk produk yang dipilih,
+                        belum termasuk ongkir.
+                    </p>
+
+
+                    <!-- TOMBOL CHECKOUT -->
+                    <button
+                        id="checkout"
+                        disabled
+                        class="w-full bg-black px-5 py-4 text-sm font-bold uppercase tracking-[.12em] text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:bg-gray-300"
+                    >
+
+                        Checkout (
+
+                        <span id="checkout-count">
+                            0
+                        </span>
+
+                        ) →
+
+                    </button>
+
+
+                    <!-- INFORMASI CHECKOUT -->
+                    <p class="mt-3 text-center text-xs text-gray-500">
+                        Pilih produk untuk melanjutkan
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- ===================================== -->
+        <!-- REKOMENDASI TAMBAHAN PRODUK            -->
+        <!-- ===================================== -->
+
+        <section
+            id="recommendations"
+            class="mt-16 border-t border-black pt-8"
+        >
+
+            <!-- JUDUL REKOMENDASI -->
+            <div class="mb-6 flex items-end justify-between gap-3">
+
+                <div>
+
+                    <p class="text-xs font-semibold uppercase tracking-[.2em]">
+                        Complete your bag
+                    </p>
+
+                    <h2 class="mt-2 text-2xl font-bold uppercase">
+                        Tambahkan ke keranjang
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- DAFTAR PRODUK REKOMENDASI -->
+            <div
+                id="suggestions"
+                class="grid grid-cols-2 gap-4 md:grid-cols-4"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ===================================== -->
+    <!-- FOOTER WEBSITE                        -->
+    <!-- ===================================== -->
+
+    <div id="site-footer"></div>
+
+
+    <!-- ===================================== -->
+    <!-- JAVASCRIPT                            -->
+    <!-- ===================================== -->
+
+    <!-- Komponen Header dan Footer -->
+    <script
+        src="../js/components.js"
+        data-root="../"
+    ></script>
+
+    <!-- Data Produk -->
+    <script src="../js/products.js"></script>
+
+    <!-- Logika Keranjang Belanja -->
+    <script src="../js/keranjang.js"></script>
+
+</body>
+</html>
