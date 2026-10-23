@@ -68,7 +68,7 @@
         <nav class="ml-4 hidden gap-4 lg:flex xl:gap-6" aria-label="Menu utama">${links(false)}</nav>
         ${searchForm("desktop", "relative ml-auto hidden max-w-[260px] flex-1 lg:block xl:max-w-[420px]")}
         <div class="flex items-center gap-2">
-          <a href="${link("pages/akun.html")}" class="${ICON_BTN.replace("grid ", "")} hidden lg:grid" aria-label="Akun">${ICON.user}</a>
+          <a href="${link("akun.html#/profil")}" class="${ICON_BTN.replace("grid ", "")} hidden lg:grid" aria-label="Akun">${ICON.user}</a>
           <a href="${link("pages/keranjang.html")}" class="${ICON_BTN}" aria-label="Keranjang">${ICON.bag}<span class="absolute right-[3px] top-1 grid h-[17px] min-w-[17px] place-items-center rounded-[9px] bg-black px-1 text-[10px] font-bold text-white" data-cart-count>0</span></a>
         </div>
       </div>
@@ -83,7 +83,7 @@
       </div>
       <nav>${links(true)}</nav>
       <div class="mt-auto grid gap-3 p-6">
-        <a class="${btn("solid")}" href="${link("pages/akun.html")}">Masuk / Daftar</a>
+        <a class="${btn("solid")}" href="${link("akun.html#/profil")}">Masuk / Daftar</a>
         <a class="${btn("outline")}" href="${link("pages/wishlist.html")}">Wishlist</a>
       </div>
     </aside>`;
