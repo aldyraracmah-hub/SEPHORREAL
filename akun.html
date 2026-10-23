@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Akun · SEPHORREAL</title>
+<meta name="description" content="Masuk, kelola profil, dan lihat riwayat checkout fiktifmu di SEPHORREAL." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily: { display: ['"Space Grotesk"', 'Inter', 'sans-serif'], body: ['Inter', 'system-ui', 'sans-serif'] },
+  transitionTimingFunction: { soft: 'cubic-bezier(.22,.8,.2,1)' },
+  keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
+  animation: { marquee: 'marquee 26s linear infinite' }
+} } };
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  h1, h2, h3, h4, h5 { @apply font-display font-bold leading-[1.05] tracking-[-0.02em]; }
+  :focus-visible { @apply outline outline-2 outline-offset-[3px] outline-black; }
+  h1:focus { @apply outline-none; }
+}
+@layer components {
+  .label { @apply mb-1.5 block font-display text-[12px] font-semibold uppercase tracking-[0.14em]; }
+  .field { @apply h-[52px] w-full border-2 border-black bg-white px-4 text-[15px] placeholder:text-gray-500; }
+  textarea.field { @apply h-auto min-h-[104px] py-3; }
+  .field[aria-invalid="true"] { @apply border-dashed bg-gray-50; }
+  .hint { @apply mt-1.5 hidden text-[13px] font-medium; }
+  .field[aria-invalid="true"] + .hint, .pw-wrap:has([aria-invalid="true"]) + .hint { @apply block; }
+  .btn { @apply inline-flex h-[52px] w-full items-center justify-center gap-2 border-2 border-black bg-black px-8 font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-[250ms] ease-soft hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto; }
+  .btn-block { @apply sm:w-full; }
+  .btn-outline { @apply bg-white text-black hover:bg-black hover:text-white; }
+  .msg { @apply mb-4 hidden border-2 border-black bg-gray-50 p-3 text-[14px] font-medium; }
+  .tab { @apply inline-flex h-11 shrink-0 items-center gap-2 whitespace-nowrap border-2 border-black bg-white px-4 font-display text-[12px] font-semibold uppercase tracking-[0.1em] transition-colors duration-200 hover:bg-gray-100; }
+  .tab[aria-selected="true"] { @apply bg-black text-white hover:bg-black; }
+  .hard { box-shadow: 6px 6px 0 0 #000; }
+  .dots { background-image: radial-gradient(rgba(0,0,0,.16) 1px, transparent 1px); background-size: 18px 18px; }
+  .lift { transition: transform .25s cubic-bezier(.22,.8,.2,1), box-shadow .25s cubic-bezier(.22,.8,.2,1); }
+  .lift:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 0 #000; }
+  .outline-text { color: transparent; -webkit-text-stroke: 2px #fff; }
+  .link { @apply whitespace-nowrap border-b-2 border-current pb-[2px] font-display text-[13px] font-semibold uppercase tracking-[0.12em] hover:opacity-60; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes sr-fall { 0% { transform: translateY(-10vh) rotate(0); opacity: 1 } 100% { transform: translateY(105vh) rotate(540deg); opacity: .9 } }
+  @keyframes sr-float { 0%,100% { transform: rotate(-3deg) translateY(0) } 50% { transform: rotate(-3deg) translateY(-8px) } }
+  .sr-float { animation: sr-float 5s ease-in-out infinite; }
+  @keyframes sr-pop { 0% { transform: scale(.96); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
+  .sr-pop { animation: sr-pop .45s cubic-bezier(.2,.8,.2,1) both; }
+}
+</style>
+</head>
+<body data-page="account" class="bg-white font-body text-[15px] leading-[1.6] text-black antialiased">
+
+<div id="site-header"></div>
+<main id="view"></main>
+<div id="site-footer"></div>
+
+<script src="js/components.js" data-root=""></script>
+<script src="js/akun.js"></script>
+</body>
+</html>
