@@ -94,7 +94,7 @@
         <div class="grid items-center gap-8 border-b border-[#2a2a2a] py-12 lg:grid-cols-[1.1fr_1fr]">
           <h2 class="text-[clamp(28px,4vw,46px)] uppercase">Gabung &amp; dapat<br>10% voucher pertama</h2>
           <div class="flex max-w-[460px] flex-col items-start gap-4 lg:justify-self-end">
-            <p class="text-[14px] text-gray-300">Buat akun gratis, dapatkan voucher 10% untuk pembelian pertama, dan jadi yang pertama tahu promo terbaru.</p>
+            <p class="text-[14px] text-gray-300">Buat akun gratis dan dapatkan voucher 10% untuk pembelian pertama.</p>
             <a class="group inline-flex h-[60px] w-full items-center justify-center gap-3 border-2 border-white bg-white px-10 font-display text-[14px] font-semibold uppercase tracking-[0.16em] text-black transition-colors duration-[250ms] ease-soft hover:bg-transparent hover:text-white" href="${link("akun.html#/login")}">Daftar sekarang <span class="transition-transform duration-300 group-hover:translate-x-1">→</span></a>
             <ul class="flex flex-wrap gap-x-5 gap-y-1 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500"><li>✦ Voucher 10%</li><li>✦ Sample gratis</li><li>✦ Gratis ongkir</li></ul>
           </div>
