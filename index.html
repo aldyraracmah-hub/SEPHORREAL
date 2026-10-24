@@ -17,17 +17,17 @@
     }
   </style>
 </head>
-<body data-page="home" class="bg-white font-body text-[15px] leading-[1.6] text-black antialiased">
+<body data-page="home" class="overflow-x-clip bg-white font-body text-[15px] leading-[1.6] text-black antialiased">
 
   <!-- NAVBAR (diisi js/components.js) -->
   <div id="site-header"></div>
 
   <main>
     <section class="relative overflow-hidden bg-black text-white">
-      <div class="mx-auto grid w-full max-w-[1280px] items-center gap-8 px-4 py-12 lg:min-h-[min(78vh,700px)] lg:grid-cols-[1.15fr_1fr] lg:gap-12 lg:px-5 lg:py-[72px]">
-        <div>
-          <span class="mb-6 inline-flex items-center gap-3 font-display text-[12px] font-semibold uppercase tracking-[0.18em] before:h-[2px] before:w-10 before:bg-white">Koleksi Baru · 2026</span>
-          <h1 class="font-display text-[clamp(48px,8.4vw,118px)] uppercase leading-[0.92] tracking-[-0.035em]">Hitam.<br>Putih.<br><span class="text-transparent [-webkit-text-stroke:2px_#fff]">Cantik.</span></h1>
+      <div class="mx-auto grid w-full max-w-[2400px] items-center gap-8 px-4 py-12 lg:min-h-[min(78vh,700px)] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-12 lg:px-10 xl:px-16 lg:py-[72px]">
+        <div class="min-w-0">
+          <span class="mb-6 inline-flex items-center gap-3 font-display text-[12px] font-semibold uppercase tracking-[0.18em] before:h-[2px] before:w-10 before:bg-white">Produk Baru · 2026</span>
+          <h1 class="font-display text-[clamp(34px,8vw,64px)] uppercase leading-[0.95] tracking-[-0.03em] lg:text-[clamp(40px,5vw,110px)]">Beli produk<br>berkualitas<br><span class="text-transparent [-webkit-text-stroke:2px_#fff]">di Sephorreal</span></h1>
           <p class="mb-8 mt-6 max-w-[460px] text-[16px] text-gray-300">Makeup, skincare, dan parfum pilihan dalam satu tempat. Simpel, bersih, dan langsung ke intinya.</p>
           <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a class="inline-flex h-[52px] w-full items-center justify-center gap-2 border-2 border-white bg-white px-8 font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-black transition-colors duration-[250ms] ease-soft hover:bg-transparent hover:text-white sm:w-auto" href="pages/kategori.html?c=makeup">Belanja sekarang</a>
@@ -35,70 +35,102 @@
           </div>
         </div>
 
-        <!-- <img src="assets/hero.jpg" alt="..." class="grayscale"> -->
-        <div class="relative mx-auto aspect-[1/1.08] w-full max-w-[380px] lg:ml-auto lg:mr-0 lg:max-w-[520px]" aria-hidden="true">
-          <div class="absolute bottom-[22%] left-0 right-[14%] top-0 grid place-items-center bg-white text-black">
-            <div class="absolute aspect-square w-[62%] rounded-full border-2 border-black"></div>
-            <div class="absolute aspect-square w-[38%] rounded-full bg-black"></div>
-            <span class="absolute bottom-4 left-4 font-display text-[12px] font-semibold uppercase tracking-[0.16em]">Signature Edit</span>
+        <!-- PANEL DEAL -->
+        <div class="relative mx-auto w-full max-w-[380px] lg:ml-auto lg:mr-0 lg:max-w-[560px]">
+          <div class="bg-white p-5 text-black">
+            <span class="inline-block bg-black px-3 py-1 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-white">Deal minggu ini</span>
+            <p class="mt-3 font-display text-[clamp(32px,4.4vw,52px)] font-bold uppercase leading-[0.95] tracking-[-0.02em]">Diskon<br>s/d 40%</p>
+            <div class="mt-4 divide-y divide-black border-y border-black">
+              <a href="pages/kategori.html?c=sale" class="flex items-center gap-3 py-3 hover:bg-gray-50">
+                <img src="img/wardahcucimuka.jpeg" alt="Body Wash Wardah" class="h-16 w-16 shrink-0 bg-gray-100 object-cover" />
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500">Wardah</p>
+                  <p class="truncate text-[14px] font-semibold">Body Wash</p>
+                  <p class="text-[13px]"><strong>Rp215.400</strong> <s class="text-gray-500">Rp359.000</s></p>
+                </div>
+                <span class="shrink-0 border border-black px-2 py-1 font-display text-[12px] font-bold">-40%</span>
+              </a>
+              <a href="pages/kategori.html?c=sale" class="flex items-center gap-3 py-3 hover:bg-gray-50">
+                <img src="img/vitalis%20parfum.jpeg" alt="Parfum Mitalis" class="h-16 w-16 shrink-0 bg-gray-100 object-cover" />
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500">Mitalis</p>
+                  <p class="truncate text-[14px] font-semibold">Celebration and Coutline 50ml</p>
+                  <p class="text-[13px]"><strong>Rp122.850</strong> <s class="text-gray-500">Rp189.000</s></p>
+                </div>
+                <span class="shrink-0 border border-black px-2 py-1 font-display text-[12px] font-bold">-35%</span>
+              </a>
+              <a href="pages/kategori.html?c=sale" class="flex items-center gap-3 py-3 hover:bg-gray-50">
+                <img src="img/scrub.jpeg" alt="Body Scrub SkinFlair" class="h-16 w-16 shrink-0 bg-gray-100 object-cover" />
+                <div class="min-w-0 flex-1">
+                  <p class="font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-500">SkinFlair</p>
+                  <p class="truncate text-[14px] font-semibold">Glutathione Body Scrub</p>
+                  <p class="text-[13px]"><strong>Rp70.850</strong> <s class="text-gray-500">Rp109.000</s></p>
+                </div>
+                <span class="shrink-0 border border-black px-2 py-1 font-display text-[12px] font-bold">-35%</span>
+              </a>
+            </div>
+            <a href="pages/kategori.html?c=sale" class="mt-4 inline-flex h-11 w-full items-center justify-center border-2 border-black bg-black font-display text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-[250ms] ease-soft hover:bg-white hover:text-black">Lihat semua deal</a>
           </div>
-          <div class="absolute bottom-0 right-0 h-[44%] w-[52%] border-2 border-white"></div>
-          <div class="absolute left-0 top-[10%] grid h-[88px] w-[88px] -rotate-12 place-items-center rounded-full border-2 border-black bg-white text-center font-display text-[11px] font-bold uppercase leading-[1.15] tracking-[0.06em] text-black shadow-[0_0_0_2px_#fff] lg:-left-[6%] lg:h-[108px] lg:w-[108px] lg:text-[13px]">Gratis<br>ongkir</div>
         </div>
       </div>
     </section>
 
+    <!-- STRIP BERJALAN -->
     <div class="overflow-hidden border-y border-black bg-white" aria-hidden="true">
-      <div class="flex w-max animate-marquee motion-reduce:animate-none [&>span]:whitespace-nowrap [&>span]:px-7 [&>span]:py-[14px] [&>span]:font-display [&>span]:text-[13px] [&>span]:font-semibold [&>span]:uppercase [&>span]:tracking-[0.2em] [&>span]:after:ml-14 [&>span]:after:content-['✦']">
-        <span>Produk original</span><span>Gratis ongkir</span><span>Sample gratis</span><span>Garansi 7 hari</span>
-        <span>Produk original</span><span>Gratis ongkir</span><span>Sample gratis</span><span>Garansi 7 hari</span>
+      <div class="flex w-max animate-marquee motion-reduce:animate-none">
+        <div class="flex min-w-[100vw] shrink-0 justify-around [&>span]:whitespace-nowrap [&>span]:px-7 [&>span]:py-[14px] [&>span]:font-display [&>span]:text-[13px] [&>span]:font-semibold [&>span]:uppercase [&>span]:tracking-[0.2em] [&>span]:after:ml-14 [&>span]:after:content-['✦']">
+          <span>Produk original</span><span>Gratis ongkir</span><span>Sample gratis</span><span>Garansi 7 hari</span>
+        </div>
+        <div class="flex min-w-[100vw] shrink-0 justify-around [&>span]:whitespace-nowrap [&>span]:px-7 [&>span]:py-[14px] [&>span]:font-display [&>span]:text-[13px] [&>span]:font-semibold [&>span]:uppercase [&>span]:tracking-[0.2em] [&>span]:after:ml-14 [&>span]:after:content-['✦']">
+          <span>Produk original</span><span>Gratis ongkir</span><span>Sample gratis</span><span>Garansi 7 hari</span>
+        </div>
       </div>
     </div>
 
     <section class="py-12 lg:py-[72px]" id="kategori">
-      <div class="mx-auto w-full max-w-[1280px] px-4 lg:px-5">
+      <div class="mx-auto w-full max-w-[2400px] px-4 lg:px-10 xl:px-16">
         <div class="mb-8 flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
             <span class="font-display text-[12px] font-semibold uppercase tracking-[0.18em]">Jelajahi</span>
             <h2 class="text-[clamp(30px,5vw,52px)] uppercase">Kategori unggulan</h2>
           </div>
-          <a class="whitespace-nowrap border-b-2 border-current pb-[2px] font-display text-[20px] font-semibold uppercase tracking-[0.12em] hover:opacity-60" href="pages/kategori.html">Lihat semua</a>
+          <a class="whitespace-nowrap border-b-2 border-current pb-[2px] font-display text-[13px] font-semibold uppercase tracking-[0.12em] hover:opacity-60" href="pages/kategori.html">Lihat semua</a>
         </div>
-        <div class="grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-4">
-          <a class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-gray-100 p-4 transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-black before:transition-transform before:duration-[450ms] before:ease-soft hover:text-white hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
+        <div class="grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-4 xl:grid-cols-6">
+          <a href="pages/kategori.html?c=makeup" class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-gray-100 p-4 transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-black before:transition-transform before:duration-[450ms] before:ease-soft hover:text-white hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
             <svg class="absolute -right-[8%] top-[12%] -z-10 aspect-square w-[62%] fill-none stroke-current stroke-[1.3] opacity-90" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="24"/><circle cx="50" cy="50" r="8"/></svg>
             <span class="font-display text-[13px] font-semibold tracking-[0.16em]">01</span>
             <div><h3 class="font-display text-[clamp(26px,3.2vw,40px)] uppercase">Makeup</h3>
               <div class="mt-2 flex items-center justify-between text-[13px] text-gray-500 group-hover:text-gray-300"><span>120+ produk</span><span class="grid h-10 w-10 place-items-center rounded-full border-[1.5px] border-current transition-transform duration-300 ease-soft group-hover:-rotate-45"></span></div></div>
           </a>
-          <a class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-black p-4 text-white transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-white before:transition-transform before:duration-[450ms] before:ease-soft hover:text-black hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
+          <a href="pages/kategori.html?c=skincare" class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-black p-4 text-white transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-white before:transition-transform before:duration-[450ms] before:ease-soft hover:text-black hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
             <svg class="absolute -right-[8%] top-[12%] -z-10 aspect-square w-[62%] fill-none stroke-current stroke-[1.3] opacity-90" viewBox="0 0 100 100"><path d="M50 8c20 22 32 38 32 54a32 32 0 0 1-64 0C18 46 30 30 50 8Z"/><path d="M50 30c10 12 16 20 16 30a16 16 0 0 1-32 0c0-10 6-18 16-30Z"/></svg>
             <span class="font-display text-[13px] font-semibold tracking-[0.16em]">02</span>
             <div><h3 class="font-display text-[clamp(26px,3.2vw,40px)] uppercase">Skincare</h3>
               <div class="mt-2 flex items-center justify-between text-[13px] text-gray-300 group-hover:text-gray-500"><span>95+ produk</span><span class="grid h-10 w-10 place-items-center rounded-full border-[1.5px] border-current transition-transform duration-300 ease-soft group-hover:-rotate-45"></span></div></div>
           </a>
-          <a class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-gray-100 p-4 transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-black before:transition-transform before:duration-[450ms] before:ease-soft hover:text-white hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
+          <a href="pages/kategori.html?c=rambut" class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-gray-100 p-4 transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-black before:transition-transform before:duration-[450ms] before:ease-soft hover:text-white hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
             <svg class="absolute -right-[8%] top-[12%] -z-10 aspect-square w-[62%] fill-none stroke-current stroke-[1.3] opacity-90" viewBox="0 0 100 100"><path d="M10 30c20-14 30 14 40 0s20-14 40 0"/><path d="M10 50c20-14 30 14 40 0s20-14 40 0"/><path d="M10 70c20-14 30 14 40 0s20-14 40 0"/></svg>
             <span class="font-display text-[13px] font-semibold tracking-[0.16em]">03</span>
             <div><h3 class="font-display text-[clamp(26px,3.2vw,40px)] uppercase">Rambut</h3>
               <div class="mt-2 flex items-center justify-between text-[13px] text-gray-500 group-hover:text-gray-300"><span>60+ produk</span><span class="grid h-10 w-10 place-items-center rounded-full border-[1.5px] border-current transition-transform duration-300 ease-soft group-hover:-rotate-45"></span></div></div>
           </a>
-          <a class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-black p-4 text-white transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-white before:transition-transform before:duration-[450ms] before:ease-soft hover:text-black hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
+          <a href="pages/kategori.html?c=parfum" class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-black p-4 text-white transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-white before:transition-transform before:duration-[450ms] before:ease-soft hover:text-black hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
             <svg class="absolute -right-[8%] top-[12%] -z-10 aspect-square w-[62%] fill-none stroke-current stroke-[1.3] opacity-90" viewBox="0 0 100 100"><rect x="26" y="40" width="48" height="50" rx="4"/><rect x="40" y="24" width="20" height="16"/><path d="M44 12h12v12H44z"/></svg>
             <span class="font-display text-[13px] font-semibold tracking-[0.16em]">04</span>
             <div><h3 class="font-display text-[clamp(26px,3.2vw,40px)] uppercase">Parfum</h3>
               <div class="mt-2 flex items-center justify-between text-[13px] text-gray-300 group-hover:text-gray-500"><span>70+ produk</span><span class="grid h-10 w-10 place-items-center rounded-full border-[1.5px] border-current transition-transform duration-300 ease-soft group-hover:-rotate-45"></span></div></div>
           </a>
-          <a class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-gray-100 p-4 transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-black before:transition-transform before:duration-[450ms] before:ease-soft hover:text-white hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
+          <a href="pages/kategori.html?c=tubuh" class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-gray-100 p-4 transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-black before:transition-transform before:duration-[450ms] before:ease-soft hover:text-white hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
             <svg class="absolute -right-[8%] top-[12%] -z-10 aspect-square w-[62%] fill-none stroke-current stroke-[1.3] opacity-90" viewBox="0 0 100 100"><path d="M30 20h40l6 70H24l6-70Z"/><path d="M38 20v-8h24v8"/><path d="M34 50h32"/></svg>
             <span class="font-display text-[13px] font-semibold tracking-[0.16em]">05</span>
-            <div><h3 class="font-display text-[clamp(26px,3.2vw,40px)] uppercase">Tubuh &amp; Mandi</h3>
+            <div><h3 class="font-display text-[clamp(26px,3.2vw,40px)] uppercase">Badan &amp; Mandi</h3>
               <div class="mt-2 flex items-center justify-between text-[13px] text-gray-500 group-hover:text-gray-300"><span>45+ produk</span><span class="grid h-10 w-10 place-items-center rounded-full border-[1.5px] border-current transition-transform duration-300 ease-soft group-hover:-rotate-45"></span></div></div>
           </a>
-          <a class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-black p-4 text-white transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-white before:transition-transform before:duration-[450ms] before:ease-soft hover:text-black hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
+          <a href="pages/kategori.html?c=sale" class="group relative isolate flex aspect-[4/5] flex-col justify-between overflow-hidden bg-black p-4 text-white transition-colors duration-[350ms] ease-soft before:absolute before:inset-0 before:-z-10 before:translate-y-[101%] before:bg-white before:transition-transform before:duration-[450ms] before:ease-soft hover:text-black hover:before:translate-y-0 lg:aspect-[4/4.6] lg:p-6">
             <svg class="absolute -right-[8%] top-[12%] -z-10 aspect-square w-[62%] fill-none stroke-current stroke-[1.3] opacity-90" viewBox="0 0 100 100"><path d="M50 8 62 22l18-2 2 18 14 12-12 14 4 18-18 2-12 14-12-14-18-2 4-18L8 50l14-12 2-18 18 2L50 8Z"/></svg>
             <span class="font-display text-[13px] font-semibold tracking-[0.16em]">06</span>
-            <div><h3 class="font-display text-[clamp(26px,3.2vw,40px)] uppercase">Sale s/d 50%</h3>
+            <div><h3 class="font-display text-[clamp(26px,3.2vw,40px)] uppercase">Sale s/d 40%</h3>
               <div class="mt-2 flex items-center justify-between text-[13px] text-gray-300 group-hover:text-gray-500"><span>Terbatas</span><span class="grid h-10 w-10 place-items-center rounded-full border-[1.5px] border-current transition-transform duration-300 ease-soft group-hover:-rotate-45"></span></div></div>
           </a>
         </div>
@@ -106,7 +138,7 @@
     </section>
 
     <section class="bg-gray-50 py-12 lg:py-[72px]">
-      <div class="mx-auto w-full max-w-[1280px] px-4 lg:px-5">
+      <div class="mx-auto w-full max-w-[2400px] px-4 lg:px-10 xl:px-16">
         <div class="grid border border-black lg:grid-cols-3">
           <div class="border-b border-black px-5 py-8 last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0">
             <h4 class="mb-2 text-[20px] uppercase">100% Original</h4><p class="m-0 text-[14px] text-gray-700">Semua produk dari brand resmi dan distributor terpercaya.</p></div>

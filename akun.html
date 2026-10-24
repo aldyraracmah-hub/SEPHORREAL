@@ -9,14 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-<script>
-tailwind.config = { theme: { extend: {
-  fontFamily: { display: ['"Space Grotesk"', 'Inter', 'sans-serif'], body: ['Inter', 'system-ui', 'sans-serif'] },
-  transitionTimingFunction: { soft: 'cubic-bezier(.22,.8,.2,1)' },
-  keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
-  animation: { marquee: 'marquee 26s linear infinite' }
-} } };
-</script>
+<script src="js/tailwind-config.js"></script>
 <style type="text/tailwindcss">
 @layer base {
   h1, h2, h3, h4, h5 { @apply font-display font-bold leading-[1.05] tracking-[-0.02em]; }

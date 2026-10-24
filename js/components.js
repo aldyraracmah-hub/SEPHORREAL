@@ -13,7 +13,7 @@
     { key: "sale", label: "Sale", href: "pages/kategori.html?c=sale" },
   ];
 
-  const CONTAINER = "mx-auto w-full max-w-[1280px] px-4 lg:px-5";
+  const CONTAINER = "mx-auto w-full max-w-[2400px] px-4 lg:px-10 xl:px-16";
   const BTN_BASE = "inline-flex w-full items-center justify-center gap-2 border-2 px-8 font-display text-[13px] font-semibold uppercase tracking-[0.14em] transition-colors duration-[250ms] ease-soft sm:w-auto";
   const BTN = {
     solid:   "border-black bg-black text-white hover:bg-white hover:text-black",

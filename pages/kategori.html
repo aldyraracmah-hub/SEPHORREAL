@@ -15,18 +15,11 @@
       h1, h2, h3, h4, h5 { @apply font-display font-bold leading-[1.05] tracking-[-0.02em]; }
       :focus-visible { @apply outline outline-2 outline-offset-[3px] outline-black; }
     }
-
-    /* =====================================================
-       CLASS BUATAN SENDIRI (berbahasa Indonesia)
-       Tiap class di bawah = gabungan class Tailwind.
-       Mau ubah tampilan? Cukup ubah di sini, tidak perlu
-       mengubah HTML atau JavaScript.
-       ===================================================== */
     @layer components {
 
       /* ---------- Kerangka halaman ---------- */
       .isi-halaman        { @apply py-12 lg:py-[72px]; }
-      .pembungkus         { @apply mx-auto w-full max-w-[1280px] px-4 lg:px-5; }
+      .pembungkus         { @apply mx-auto w-full max-w-[2400px] px-4 lg:px-10 xl:px-16; }
 
       /* ---------- Judul halaman ---------- */
       .kepala-halaman     { @apply mb-8 flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6; }
@@ -48,7 +41,7 @@
       .tombol-filter-aktif{ @apply bg-black text-white; }
 
       /* ---------- Daftar produk ---------- */
-      .grid-produk        { @apply grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4; }
+      .grid-produk        { @apply grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4 min-[1500px]:grid-cols-5 min-[1900px]:grid-cols-6; }
 
       /* ---------- Kartu produk ---------- */
       .gambar-produk      { @apply relative grid aspect-[4/5] place-items-center overflow-hidden bg-gray-100; }
