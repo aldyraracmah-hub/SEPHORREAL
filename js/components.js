@@ -59,7 +59,7 @@
     </form>`;
 
   const header = `
-    <div class="bg-black px-4 py-[9px] text-center text-[12px] tracking-[0.08em] text-white lg:px-5">Gratis ongkir untuk pembelian di atas Rp300.000 · <a class="underline underline-offset-[3px]" href="${link("pages/kategori.html?c=sale")}">Belanja sekarang</a></div>
+    <div class="bg-black px-4 py-[9px] text-center text-[12px] tracking-[0.08em] text-white lg:px-5">Gratis ongkir untuk pembelian di atas Rp300.000 · <a class="underline underline-offset-[3px]" href="${link("akun.html#/daftar")}">Buat akun</a></div>
     <header class="sticky top-0 z-50 border-b border-line bg-white">
       <div class="${CONTAINER} flex h-[62px] items-center gap-2 lg:h-[72px] lg:gap-4 xl:gap-8">
         <button class="${ICON_BTN} -ml-[10px] lg:hidden" data-menu-open aria-label="Buka menu">${ICON.menu}</button>
@@ -94,7 +94,7 @@
         <div class="grid items-center gap-8 border-b border-[#2a2a2a] py-12 lg:grid-cols-[1.1fr_1fr]">
           <h2 class="text-[clamp(28px,4vw,46px)] uppercase">Gabung &amp; dapat<br>10% voucher pertama</h2>
           <div class="flex max-w-[460px] flex-col items-start gap-4 lg:justify-self-end">
-            <p class="text-[14px] text-gray-300">Buat akun gratis dan dapatkan voucher 10% untuk pembelian pertama.</p>
+            <p class="text-[14px] text-gray-300">Buat akun gratis, dapatkan voucher 10% untuk pembelian pertama, dan jadi yang pertama tahu promo terbaru.</p>
             <a class="group inline-flex h-[60px] w-full items-center justify-center gap-3 border-2 border-white bg-white px-10 font-display text-[14px] font-semibold uppercase tracking-[0.16em] text-black transition-colors duration-[250ms] ease-soft hover:bg-transparent hover:text-white" href="${link("akun.html#/login")}">Daftar sekarang <span class="transition-transform duration-300 group-hover:translate-x-1">→</span></a>
             <ul class="flex flex-wrap gap-x-5 gap-y-1 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500"><li>✦ Voucher 10%</li><li>✦ Sample gratis</li><li>✦ Gratis ongkir</li></ul>
           </div>
