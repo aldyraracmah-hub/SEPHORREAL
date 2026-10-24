@@ -9,7 +9,7 @@
     { key: "skincare", label: "Skincare", href: "pages/kategori.html?c=skincare" },
     { key: "rambut", label: "Rambut", href: "pages/kategori.html?c=rambut" },
     { key: "parfum",label: "Parfum", href: "pages/kategori.html?c=parfum" },
-    { key: "tubuh", label: "Tubuh & Mandi", href: "pages/kategori.html?c=tubuh" },
+    { key: "tubuh", label: "Badan & Mandi", href: "pages/kategori.html?c=tubuh" },
     { key: "sale", label: "Sale", href: "pages/kategori.html?c=sale" },
   ];
 
@@ -93,21 +93,21 @@
       <div class="${CONTAINER}">
         <div class="grid items-center gap-8 border-b border-[#2a2a2a] py-12 lg:grid-cols-[1.1fr_1fr]">
           <h2 class="text-[clamp(28px,4vw,46px)] uppercase">Gabung &amp; dapat<br>10% voucher pertama</h2>
-          <form class="flex flex-col gap-2 sm:flex-row sm:gap-0" onsubmit="event.preventDefault();this.querySelector('button').textContent='Terdaftar ✓'">
-            <label class="sr-only" for="nl-email">Email</label>
-            <input id="nl-email" class="h-[54px] w-full border-[1.5px] border-white bg-transparent px-4 text-white placeholder:text-gray-500 sm:border-r-0" type="email" required placeholder="Alamat email kamu" />
-            <button class="${btn("white", "h-[54px]")}" type="submit">Daftar</button>
-          </form>
+          <div class="flex max-w-[460px] flex-col items-start gap-4 lg:justify-self-end">
+            <p class="text-[14px] text-gray-300">Buat akun gratis, dapatkan voucher 10% untuk pembelian pertama, dan jadi yang pertama tahu promo terbaru.</p>
+            <a class="group inline-flex h-[60px] w-full items-center justify-center gap-3 border-2 border-white bg-white px-10 font-display text-[14px] font-semibold uppercase tracking-[0.16em] text-black transition-colors duration-[250ms] ease-soft hover:bg-transparent hover:text-white" href="${link("akun.html#/login")}">Daftar sekarang <span class="transition-transform duration-300 group-hover:translate-x-1">→</span></a>
+            <ul class="flex flex-wrap gap-x-5 gap-y-1 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500"><li>✦ Voucher 10%</li><li>✦ Sample gratis</li><li>✦ Gratis ongkir</li></ul>
+          </div>
         </div>
 
         <div class="grid grid-cols-2 gap-8 py-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div class="col-span-full lg:col-auto">
             <a href="${link("index.html")}" aria-label="SEPHORREAL — beranda">${logoImg("h-16 lg:h-20", "invert mix-blend-screen")}</a>
-            <p class="my-4 max-w-[320px] text-[14px] text-gray-500">Destinasi beauty hitam-putih: produk pilihan, tanpa ribet, tanpa bising.</p>
+            <p class="my-4 max-w-[320px] text-[14px] text-gray-500">We Belong to<br>Something Beautiful</p>
             <div class="flex gap-2">
-              <a class="grid h-[42px] w-[42px] place-items-center rounded-full border-[1.5px] border-white transition-colors duration-[250ms] hover:bg-white hover:text-black" href="#" aria-label="Instagram">${ICON.ig}</a>
-              <a class="grid h-[42px] w-[42px] place-items-center rounded-full border-[1.5px] border-white transition-colors duration-[250ms] hover:bg-white hover:text-black" href="#" aria-label="TikTok">${ICON.tt}</a>
-              <a class="grid h-[42px] w-[42px] place-items-center rounded-full border-[1.5px] border-white transition-colors duration-[250ms] hover:bg-white hover:text-black" href="#" aria-label="YouTube">${ICON.yt}</a>
+              <a class="grid h-[42px] w-[42px] place-items-center rounded-full border-[1.5px] border-white transition-colors duration-[250ms] hover:bg-white hover:text-black" href="javascript:void(0)" aria-label="Instagram">${ICON.ig}</a>
+              <a class="grid h-[42px] w-[42px] place-items-center rounded-full border-[1.5px] border-white transition-colors duration-[250ms] hover:bg-white hover:text-black" href="javascript:void(0)" aria-label="TikTok">${ICON.tt}</a>
+              <a class="grid h-[42px] w-[42px] place-items-center rounded-full border-[1.5px] border-white transition-colors duration-[250ms] hover:bg-white hover:text-black" href="javascript:void(0)" aria-label="YouTube">${ICON.yt}</a>
             </div>
           </div>
           <div>
