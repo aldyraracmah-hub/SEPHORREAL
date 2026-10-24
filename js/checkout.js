@@ -47,6 +47,16 @@
   $('confirm-checkout').addEventListener('click', () => {
     if (!items.length) return;
     const button = $('confirm-checkout');
+
+    // [RIWAYAT] Harus punya akun dulu. Belum login -> arahkan ke halaman masuk/daftar,
+    // lalu setelah masuk kembali ke halaman checkout ini (pilihan barang tetap tersimpan).
+    if (window.SRSave && !SRSave.isLoggedIn()) {
+      alert('Daftar atau masuk dulu untuk checkout, supaya pesananmu tercatat di riwayat.');
+      try { sessionStorage.setItem('sr_return', 'pages/' + location.pathname.split('/').pop()); } catch (_) {}
+      window.location.href = SRSave.loginUrl;
+      return;
+    }
+
     if (!window.confirm(`Konfirmasi pesanan simulasi sebanyak ${items.reduce((n, i) => n + i.qty, 0)} item dengan total ${rupiah(total)}?\n\nTidak ada pembayaran sungguhan.`)) return;
 
     const now = new Date();
@@ -55,6 +65,15 @@
     try {
       const orders = JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]');
       localStorage.setItem(ORDERS_KEY, JSON.stringify([order, ...(Array.isArray(orders) ? orders : [])]));
+
+      // [RIWAYAT] Simpan juga ke riwayat checkout akun (nomor pesanan sama dengan yang tampil di popup).
+      if (window.SRSave) {
+        SRSave.save(
+          items.map(i => ({ id: i.id, name: i.nama, category: i.merek, price: i.harga, qty: i.qty })),
+          { id: orderNumber }
+        );
+      }
+
       // Hapus hanya produk yang dipilih untuk checkout; produk lain di cart tetap tersimpan.
       const cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
       if (Array.isArray(cart)) {
@@ -95,7 +114,10 @@
       document.body.append(bit); setTimeout(() => bit.remove(), 4300);
     }
   }
-  $('finish-button').addEventListener('click', () => { window.location.href = '../index.html'; });
+
+  // [RIWAYAT] Tombol "Selesai" membuka riwayat checkout (cadangan: beranda bila simpan-pesanan.js belum dimuat).
+  $('finish-button').addEventListener('click', () => { window.location.href = window.SRSave ? SRSave.historyUrl : '../index.html'; });
+
   $('success-overlay').addEventListener('click', event => { if (event.target === $('success-overlay')) { $('success-overlay').classList.remove('show'); document.body.style.overflow = ''; } });
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && $('success-overlay').classList.contains('show')) { $('success-overlay').classList.remove('show'); document.body.style.overflow = ''; } });
 })();
