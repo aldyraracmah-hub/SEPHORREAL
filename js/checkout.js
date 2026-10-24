@@ -106,7 +106,7 @@
   });
 
   function celebrate() {
-    const colors = ['#e9a9c4', '#c76b91', '#f5d9e5', '#d6a8bc', '#f4c65e'];
+    const colors = ['#242424', '#555555', '#eeeeee', '#d6d6d6', '#ffffff'];
     for (let i = 0; i < 65; i++) {
       const bit = document.createElement('i'); bit.className = 'confetti';
       bit.style.left = Math.random() * 100 + 'vw'; bit.style.background = colors[i % colors.length];
