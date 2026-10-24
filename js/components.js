@@ -59,7 +59,7 @@
     </form>`;
 
   const header = `
-    <div class="bg-black px-4 py-[9px] text-center text-[12px] tracking-[0.08em] text-white lg:px-5">Gratis ongkir untuk pembelian di atas Rp300.000 · <a class="underline underline-offset-[3px]" href="${link("akun.html#/daftar")}">Buat akun</a></div>
+    <div class="bg-black px-4 py-[9px] text-center text-[12px] tracking-[0.08em] text-white lg:px-5">Gratis ongkir untuk pembelian di atas Rp300.000<span data-signup> · <a class="underline underline-offset-[3px]" href="${link("akun.html#/daftar")}">Buat akun</a></span></div>
     <header class="sticky top-0 z-50 border-b border-line bg-white">
       <div class="${CONTAINER} flex h-[62px] items-center gap-2 lg:h-[72px] lg:gap-4 xl:gap-8">
         <button class="${ICON_BTN} -ml-[10px] lg:hidden" data-menu-open aria-label="Buka menu">${ICON.menu}</button>
@@ -117,19 +117,19 @@
           <div>
             <h5 class="${FOOT_H5}">Bantuan</h5>
             <ul class="[&>li+li]:mt-2">
-              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Cara pemesanan</a></li>
-              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Pengiriman</a></li>
-              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Pengembalian</a></li>
-              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Hubungi kami</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Cara pemesanan</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Pengiriman</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Pengembalian</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Hubungi kami</a></li>
             </ul>
           </div>
           <div>
             <h5 class="${FOOT_H5}">Tentang</h5>
             <ul class="[&>li+li]:mt-2">
-              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Tentang SEPHORREAL</a></li>
-              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Karier</a></li>
-              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Syarat &amp; ketentuan</a></li>
-              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Kebijakan privasi</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Tentang SEPHORREAL</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Karier</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Syarat &amp; ketentuan</a></li>
+              <li><a class="${FOOT_LINK}" href="#">Kebijakan privasi</a></li>
             </ul>
           </div>
         </div>
@@ -162,6 +162,15 @@
   });
   document.addEventListener("keydown", (e) => e.key === "Escape" && setMenu(false));
   window.matchMedia("(min-width: 901px)").addEventListener("change", (m) => m.matches && setMenu(false));
+
+  // Sembunyikan ajakan "Buat akun" kalau pengguna sudah login
+  try {
+    const sessionId = JSON.parse(localStorage.getItem("sr_session") || "null");
+    const users = JSON.parse(localStorage.getItem("sr_users") || "[]");
+    if (sessionId && users.some((u) => u.id === sessionId)) {
+      document.querySelectorAll("[data-signup]").forEach((el) => el.remove());
+    }
+  } catch (_) {}
 
   try {
     const cart = JSON.parse(localStorage.getItem("sephora_cart") || "[]");
