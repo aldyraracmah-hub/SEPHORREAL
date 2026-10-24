@@ -117,19 +117,19 @@
           <div>
             <h5 class="${FOOT_H5}">Bantuan</h5>
             <ul class="[&>li+li]:mt-2">
-              <li><a class="${FOOT_LINK}" href="#">Cara pemesanan</a></li>
-              <li><a class="${FOOT_LINK}" href="#">Pengiriman</a></li>
-              <li><a class="${FOOT_LINK}" href="#">Pengembalian</a></li>
-              <li><a class="${FOOT_LINK}" href="#">Hubungi kami</a></li>
+              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Cara pemesanan</a></li>
+              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Pengiriman</a></li>
+              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Pengembalian</a></li>
+              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Hubungi kami</a></li>
             </ul>
           </div>
           <div>
             <h5 class="${FOOT_H5}">Tentang</h5>
             <ul class="[&>li+li]:mt-2">
-              <li><a class="${FOOT_LINK}" href="#">Tentang SEPHORREAL</a></li>
-              <li><a class="${FOOT_LINK}" href="#">Karier</a></li>
-              <li><a class="${FOOT_LINK}" href="#">Syarat &amp; ketentuan</a></li>
-              <li><a class="${FOOT_LINK}" href="#">Kebijakan privasi</a></li>
+              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Tentang SEPHORREAL</a></li>
+              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Karier</a></li>
+              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Syarat &amp; ketentuan</a></li>
+              <li><a class="${FOOT_LINK}" href="javascript:void(0)">Kebijakan privasi</a></li>
             </ul>
           </div>
         </div>
