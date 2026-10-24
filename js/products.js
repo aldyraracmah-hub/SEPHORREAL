@@ -45,6 +45,6 @@ window.DAFTAR_KATEGORI = {
   skincare: { label: "Skincare",      judul: "Skincare",      deskripsi: "Perawatan wajah dari pembersih sampai tabir surya." },
   rambut:   { label: "Rambut",        judul: "Rambut",        deskripsi: "Sampo, kondisioner, dan perawatan kulit kepala." },
   parfum:   { label: "Parfum",        judul: "Parfum",        deskripsi: "Wangi harian sampai koleksi spesial." },
-  tubuh:    { label: "Tubuh & Mandi", judul: "Tubuh & Mandi", deskripsi: "Rutinitas mandi dan perawatan kulit tubuh." },
+  tubuh:    { label: "Badan & Mandi", judul: "Badan & Mandi", deskripsi: "Rutinitas mandi dan perawatan kulit tubuh." },
   sale:     { label: "Sale",          judul: "Sale s/d 50%",  deskripsi: "Diskon terbatas — stok bisa habis kapan saja." },
 };
