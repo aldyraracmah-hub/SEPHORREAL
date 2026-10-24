@@ -398,6 +398,7 @@ var SR = (function (w) {
         '<div class="flex items-center justify-between gap-5 sm:justify-end"><div class="sm:text-right"><p class="text-[12px] text-gray-700">Total</p><p class="font-display text-[22px] font-bold leading-none">' + esc(SR.rupiah(o.total)) + '</p></div>' +
         '<a class="btn btn-outline !w-auto" href="#/pesanan/' + encodeURIComponent(o.id) + '">Lihat detail</a></div></div></article></li>';
     }
+
     function draw(force) {
       var orders = SR.getOrders();
       var sig = filter + '|' + orders.map(function (o) { return o.id + ':' + SR.statusOf(o).index; }).join(',');
@@ -439,6 +440,7 @@ var SR = (function (w) {
       for (var i = 0; i < 44; i++) { var c = t.charCodeAt(i % t.length) + i * 7, w = 1 + (c % 3); if (i % 2 === 0) bars += '<rect x="' + x + '" y="0" width="' + w + '" height="40"/>'; x += w + 1; }
       return '<svg viewBox="0 0 ' + x + ' 40" preserveAspectRatio="none" class="h-12 w-full fill-black">' + bars + '</svg>';
     }
+
     function confetti() {
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       var box = document.createElement('div'); box.setAttribute('aria-hidden', 'true');
@@ -458,7 +460,7 @@ var SR = (function (w) {
         var mk = cur ? 'bg-black text-white ring-2 ring-black ring-offset-2' : done ? 'bg-black text-white' : 'border-2 border-dashed border-black bg-white text-black';
         return '<li class="relative flex gap-4 ' + (last ? '' : 'pb-8') + '"' + (cur ? ' aria-current="step"' : '') + '>' +
           (last ? '' : '<span class="absolute left-[15px] top-8 h-[calc(100%-2rem)] w-0 border-l-2 border-black ' + (done ? '' : 'border-dashed') + '" aria-hidden="true"></span>') +
-          '<span class="relative grid h-8 w-8 shrink-0 place-items-center rounded-full font-display text-[13px] font-bold ' + mk + '" aria-hidden="true">' + (done ? '✓' : i + 1) + '</span>' +
+          '<span class="relative grid h-8 w-8 shrink-0 place-items-center rounded-full font-display text-[13px] font-bold ' + mk + '" aria-hidden="true">' + (done || (cur && last) ? '✓' : i + 1) + '</span>' +
           '<div class="min-w-0 pt-[2px]"><p class="font-display text-[16px] font-bold uppercase leading-tight">' + esc(s.label) + (cur ? ' <span class="ml-1 font-body text-[12px] font-semibold normal-case tracking-normal">(status saat ini)</span>' : '') + '</p>' +
           '<p class="text-[14px] text-gray-700">' + esc(s.desc) + '</p><p class="text-[13px] text-gray-500">' + (i <= st.index ? esc(SR.fmtDate(times[i])) : 'Menunggu') + '</p></div></li>';
       }).join('') + '</ol>';
